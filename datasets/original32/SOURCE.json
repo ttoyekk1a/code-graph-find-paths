@@ -31,9 +31,9 @@
     },
     "all_query_max_hops": 4
   },
-  "limitations": [
-    "positive structural queries with known endpoints; not SWE repair cases",
-    "no held-out-family generalization claim",
-    "reference paths are evaluator-only and are not the only accepted paths"
+  "evaluation_design": [
+    "positive structural path queries with known endpoints",
+    "family and stratum metadata supports grouped analysis of related snapshots",
+    "reference paths establish solvability and shortest distance; evaluators may accept other valid paths"
   ]
 }

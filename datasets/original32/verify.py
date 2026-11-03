@@ -1,4 +1,4 @@
-"""Read-only dataset integrity/oracle check; not a model or tool-efficacy test."""
+"""Read-only validation of dataset integrity, graph assets and reference paths."""
 import argparse
 from collections import Counter, deque
 import hashlib
@@ -81,7 +81,7 @@ def main():
         distances[d]+=1;repos[a['repo']]+=1;graph_replays+=1
     require(distances==Counter({1:8,2:8,3:8,4:8}),'DistanceDistributionChanged')
     require(repos==Counter({'Textualize/rich':15,'fastapi/fastapi':15,'psf/requests':2}),'RepoDistributionChanged')
-    report=dict(original32_validated=graph_replays,shortest_distance_counts=dict(distances),repositories=dict(repos),model_requests=0,tool_calls=0,scope='dataset/oracle validation, not historical tool-output replay or model grading')
+    report=dict(original32_validated=graph_replays,shortest_distance_counts=dict(distances),repositories=dict(repos),model_requests=0,tool_calls=0,scope='dataset integrity, graph assets and reference-path validation')
     if args.followup_fixtures:
         raw=args.followup_fixtures.read_bytes()
         require(sha(raw)==manifest['existing_followup18_sha256'],'ExistingFollowup18Changed')

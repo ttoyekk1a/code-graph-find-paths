@@ -15,7 +15,7 @@
     "file": "budget.py",
     "source": "graph-find-paths/frozen/vendor/swegemma/tools/base.py",
     "source_sha256": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
-    "adaptation": "vendored budget helpers with standalone docstring and graph-specific low-budget guidance; not an SDK"
+    "adaptation": "vendored budget helpers with standalone docstring and graph-specific low-budget guidance"
   },
   {
     "file": "session.py",
