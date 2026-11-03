@@ -125,13 +125,15 @@ python3 -I -B graph-find-paths/scripts/verify.py
 
 The frozen search implementation, schema and 18 historical replay fixtures in `graph-find-paths/`, plus `datasets/original32/`, are preserved. Internal transfer documents are excluded from the distribution; the manifest describes the retained files. The standalone engine is an explicitly documented adaptation; see [source provenance](code_graph_find_paths/_engine/PROVENANCE.json).
 
-### Example: neighbor-by-neighbor exploration vs. one path query
+### Example: `get_code_neighbors` vs. `graph_find_paths`
 
-The reported `followup-001` example connects `SpinnerColumn.render` to `DownloadColumn.render` in Rich. Node IDs below omit the `rich.progress.` prefix for readability.
+This example compares **`get_code_neighbors`**, the built-in neighbor lookup tool provided by the [Google Gemma 4 Developer Agent Competition](https://www.kaggle.com/competitions/gemma-4-developer-agent/overview), with **`graph_find_paths`**, the path-query tool provided by this project. `get_code_neighbors` returns the neighbors of one symbol per call; `graph_find_paths` accepts both endpoints and returns a complete path with evidence for every edge.
+
+The `followup-001` task connects `SpinnerColumn.render` to `DownloadColumn.render` in Rich. Both approaches use the same graph and endpoints. Node IDs below omit the `rich.progress.` prefix for readability.
 
 ```mermaid
 flowchart LR
-    subgraph B["Baseline B: 4 queries + 1 submission"]
+    subgraph B["get_code_neighbors: 4 queries + 1 submission"]
         direction TB
         B1["1. get_code_neighbors<br/>node=SpinnerColumn.render<br/>1 neighbor: SpinnerColumn"]
         B2["2. get_code_neighbors<br/>node=SpinnerColumn<br/>6 neighbors, including ProgressColumn"]
@@ -141,7 +143,7 @@ flowchart LR
         B1 --> B2 --> B3 --> B4 --> B5
     end
 
-    subgraph D["Tool D: 1 query + 1 submission"]
+    subgraph D["graph_find_paths: 1 query + 1 submission"]
         direction TB
         D1["1. graph_find_paths<br/>source_nodes=[SpinnerColumn.render]<br/>target_nodes=[DownloadColumn.render]<br/>max_hops=4"]
         DR["Traversal within the same call<br/>Complete 4-hop path and evidence for every edge<br/>14 nodes visited; 32 edge rows examined"]
@@ -150,7 +152,7 @@ flowchart LR
     end
 ```
 
-In this Rich example, D reduces agent query calls from four to one: **75% fewer query calls**, with the complete 4-hop path and its edge evidence returned together. The [D replay fixture](graph-find-paths/fixtures/real-graph-replays.json) records the path, 14 visited nodes and 32 examined edge rows. The benchmark uses `submit_graph_answer` to submit the result; standalone agents receive the path directly through `graph_find_paths`.
+In this Rich example, `graph_find_paths` reduces agent query calls from four to one compared with `get_code_neighbors`: **75% fewer query calls**, with the complete 4-hop path and its edge evidence returned together. The [Path-query replay fixture](graph-find-paths/fixtures/real-graph-replays.json) records the path, 14 visited nodes and 32 examined edge rows. The benchmark uses `submit_graph_answer` to submit the result; standalone agents receive the path directly through `graph_find_paths`.
 
 ### Run the competition backend
 
