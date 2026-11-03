@@ -125,6 +125,35 @@ python3 -I -B graph-find-paths/scripts/verify.py
 
 The frozen search implementation, schema and 18 historical replay fixtures in `graph-find-paths/`, plus `datasets/original32/`, are preserved. Internal transfer documents are excluded from the distribution; the manifest describes the retained files. The standalone engine is an explicitly documented adaptation; see [source provenance](code_graph_find_paths/_engine/PROVENANCE.json). It does not impersonate or inject `swegemma` modules.
 
+### Example: neighbor-by-neighbor exploration vs. one path query
+
+The reported `followup-001` example connects `SpinnerColumn.render` to `DownloadColumn.render` in Rich. Node IDs below omit the `rich.progress.` prefix for readability.
+
+```mermaid
+flowchart LR
+    subgraph B["Baseline B: 4 queries + 1 submission"]
+        direction TB
+        B1["1. get_code_neighbors<br/>node=SpinnerColumn.render<br/>1 neighbor: SpinnerColumn"]
+        B2["2. get_code_neighbors<br/>node=SpinnerColumn<br/>6 neighbors, including ProgressColumn"]
+        B3["3. get_code_neighbors<br/>node=ProgressColumn<br/>15 neighbors, including DownloadColumn"]
+        B4["4. get_code_neighbors<br/>node=DownloadColumn<br/>6 neighbors, including DownloadColumn.render"]
+        B5["5. submit_graph_answer<br/>Submit the complete 4-hop path<br/>Accepted"]
+        B1 --> B2 --> B3 --> B4 --> B5
+    end
+
+    subgraph D["Tool D: 1 query + 1 submission"]
+        direction TB
+        D1["1. graph_find_paths<br/>source_nodes=[SpinnerColumn.render]<br/>target_nodes=[DownloadColumn.render]<br/>max_hops=4"]
+        DR["Traversal within the same call<br/>Complete 4-hop path and evidence for every edge<br/>14 nodes visited; 32 edge rows examined"]
+        D2["2. submit_graph_answer<br/>Submit the complete 4-hop path<br/>Accepted"]
+        D1 --> DR --> D2
+    end
+```
+
+This example reduces agent query calls from four to one; the graph traversal still happens inside the tool. The [D replay fixture](graph-find-paths/fixtures/real-graph-replays.json) records the complete path and the 14-node/32-edge-row counters. The B sequence and submission outcomes summarize the reported comparison; their full model traces are not included in this repository. These counts describe this case, not a guaranteed speedup or SWE repair improvement. `submit_graph_answer` is a benchmark submission interface, not a tool exposed by the standalone MCP server.
+
+### Run the competition backend
+
 **Only** this optional backend requires authorized Kaggle access and the official SDK. Install it with the existing script:
 
 ```bash
