@@ -1,0 +1,21 @@
+{
+  "original32_validated": 32,
+  "shortest_distance_counts": {
+    "1": 8,
+    "2": 8,
+    "3": 8,
+    "4": 8
+  },
+  "repositories": {
+    "Textualize/rich": 15,
+    "fastapi/fastapi": 15,
+    "psf/requests": 2
+  },
+  "model_requests": 0,
+  "tool_calls": 0,
+  "scope": "dataset/oracle validation, not historical tool-output replay or model grading",
+  "existing_followup18_unchanged": true,
+  "followup18_graphs_validated": 18,
+  "distinct_tasks_total": 50,
+  "distinct_endpoint_pairs_total": 50
+}

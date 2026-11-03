@@ -1,0 +1,9 @@
+{
+  "mode": "offline frozen-code and synthetic-context contract check",
+  "tests": 41,
+  "graph_replays": 18,
+  "real_harness_verified": false,
+  "model_requests": 0,
+  "connected": 15,
+  "unknown": 3
+}

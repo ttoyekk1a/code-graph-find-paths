@@ -1,0 +1,13 @@
+{
+  "stdio_cleanup_verified": true,
+  "protocol": "2025-11-25",
+  "tool_names": [
+    "graph_find_paths"
+  ],
+  "exact_schema": true,
+  "default_json_serialization": true,
+  "connected_query": true,
+  "unknown_and_invalid_consume_attempts": true,
+  "fourth_attempt_rejected": true,
+  "model_requests": 0
+}

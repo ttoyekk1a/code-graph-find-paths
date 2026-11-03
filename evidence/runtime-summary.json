@@ -1,0 +1,38 @@
+{
+  "runtime": "official swegemma SubprocessManager and SwegemmaContext",
+  "model_requests": 0,
+  "docker_verified": false,
+  "swe_repair_verified": false,
+  "source_snapshot_loaded": false,
+  "graph_source_alignment_verified": false,
+  "sdk_base_sha256": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
+  "schema_exact": true,
+  "tool_name_exact": true,
+  "registry": [
+    "edit_file",
+    "get_code_neighbors",
+    "get_code_subgraph",
+    "get_status",
+    "graph_find_paths",
+    "read_file",
+    "run_command",
+    "search_similar_code",
+    "submit_patch",
+    "write_file"
+  ],
+  "successful_query_budget_delta": 1,
+  "successful_query_core_calls": 1,
+  "complete_delivery": true,
+  "original_edge_evidence_verified": true,
+  "closed_session_rejected": true,
+  "budget_excess_rejected": true,
+  "controller_attempts": 3,
+  "native": {
+    "attempts": 3,
+    "admitted": 2,
+    "rejected": 1
+  },
+  "local_context_verified": true,
+  "output_characters": 3454,
+  "cleanup_verified": true
+}

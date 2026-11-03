@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-graph-find-paths"
+version = "0.2.1"
+description = "Fast Path Search in Code Graph — frozen bidirectional graph witnesses for agents"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.23,<2"]
+
+[project.scripts]
+code-graph-find-paths = "code_graph_find_paths.cli:main"
+
+[tool.setuptools]
+packages = ["code_graph_find_paths", "code_graph_find_paths._engine"]
+
+[tool.setuptools.package-data]
+"code_graph_find_paths._engine" = ["PROVENANCE.json"]

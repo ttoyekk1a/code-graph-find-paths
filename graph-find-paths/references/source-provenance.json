@@ -1,0 +1,70 @@
+[
+  {
+    "path": "frozen/decision_lab/graph_native_v1/core.py",
+    "source": "decision_lab/graph_native_v1/core.py",
+    "sha256": "50346a0791e196155b4bc82cf8211f9b1992139c594375d24955718f7ad32bec",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/decision_lab/graph_native_v1/source_read.py",
+    "source": "decision_lab/graph_native_v1/source_read.py",
+    "sha256": "b799c1fea5b285f99aab8fc2e5841e343a7f1e916bb94448dbd520b40777dd30",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/decision_lab/graph_native_v1/__init__.py",
+    "source": "decision_lab/graph_native_v1/__init__.py",
+    "sha256": "ba7a5404a2c82c7e74068a754a6a0dde3f88b36b2f68eeae27a3596d45f771f3",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/decision_lab/graph_native_lean_v1/session.py",
+    "source": "decision_lab/graph_native_lean_v1/session.py",
+    "sha256": "25bd324ba2920cc9bf8790d41b2a402ed8bcd39d97e54be3b1a5ad47c8794487",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/decision_lab/graph_native_lean_v1/__init__.py",
+    "source": "decision_lab/graph_native_lean_v1/__init__.py",
+    "sha256": "58e7a80ec850457c57579c53c86e2bf54be862deef9b6ca7ed7ff609284f1c34",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/vendor/swegemma/tools/base.py",
+    "source": "vendor/swegemma/tools/base.py",
+    "sha256": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/evidence/path-study-expanded-20261103/search.py",
+    "source": "evidence/path-study-expanded-20261103/search.py",
+    "sha256": "d6f2821ac29b5d2f4f47268f841ee87bce2d1ac12e17359fccf132e88045bd42",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/evidence/path-study-expanded-20261103/test_search.py",
+    "source": "evidence/path-study-expanded-20261103/test_search.py",
+    "sha256": "30660f90a3354adc6f7954062db2d93b818a4558b00f7c455378d58d50150962",
+    "historical_freeze_match": true
+  },
+  {
+    "path": "frozen/tests/test_graph_native_core_v1.py",
+    "source": "tests/test_graph_native_core_v1.py",
+    "sha256": "7ad0810d79cdfac9ff460ab22e034975450e615e6c6f7e041cde926feb15d89a",
+    "historical_freeze_match": null
+  },
+  {
+    "path": "frozen/tests/test_graph_native_lean_v1.py",
+    "source": "tests/test_graph_native_lean_v1.py",
+    "sha256": "d4310c89e420ded3ade702b79cae98135bda910dc32fa27c6233a528b646e9e4",
+    "historical_freeze_match": null,
+    "original_sha256": "6d365bd9a23ff2b1d884e70123e794879a453129359e944beb65c941ac4fabb0",
+    "distribution_change": "Non-ASCII test literals encoded as equivalent Unicode escapes; Python AST unchanged."
+  },
+  {
+    "path": "frozen/decision_lab/graph_module_v1/registry.py",
+    "source": "decision_lab/graph_module_v1/registry.py",
+    "sha256": "7a5368311162c670cccac68371832e7affb57331abf51ae2f1cae77597b9c6e4",
+    "historical_freeze_match": true
+  }
+]

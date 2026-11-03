@@ -1,0 +1,26 @@
+[
+  {
+    "file": "core.py",
+    "source": "graph-find-paths/frozen/decision_lab/graph_native_v1/core.py",
+    "source_sha256": "50346a0791e196155b4bc82cf8211f9b1992139c594375d24955718f7ad32bec",
+    "adaptation": "byte-identical strict graph loader and evidence core"
+  },
+  {
+    "file": "search.py",
+    "source": "graph-find-paths/frozen/evidence/path-study-expanded-20261103/search.py",
+    "source_sha256": "d6f2821ac29b5d2f4f47268f841ee87bce2d1ac12e17359fccf132e88045bd42",
+    "adaptation": "only import path changed to package-relative core; search unchanged"
+  },
+  {
+    "file": "budget.py",
+    "source": "graph-find-paths/frozen/vendor/swegemma/tools/base.py",
+    "source_sha256": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
+    "adaptation": "vendored budget helpers with standalone docstring and graph-specific low-budget guidance; not an SDK"
+  },
+  {
+    "file": "session.py",
+    "source": "graph-find-paths/frozen/decision_lab/graph_native_lean_v1/session.py",
+    "source_sha256": "25bd324ba2920cc9bf8790d41b2a402ed8bcd39d97e54be3b1a5ad47c8794487",
+    "adaptation": "package-relative imports; SDK ownership attestation replaced with local process-owned context identity; common_guard_work reports standalone identity checks; evidence normalization/search limits unchanged"
+  }
+]

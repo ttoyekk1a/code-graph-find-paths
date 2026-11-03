@@ -1,0 +1,12 @@
+{
+  "reviewer": "independent_verify subagent",
+  "attachment_byte_comparison_files": 23,
+  "frozen_sources_unchanged": true,
+  "original_graph_hash_matches": 18,
+  "tests_passed": 41,
+  "historical_replays_passed": 18,
+  "connected": 15,
+  "unknown": 3,
+  "model_requests": 0,
+  "scope": "read-only independent verification; real runtime audited separately"
+}

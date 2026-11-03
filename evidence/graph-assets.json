@@ -1,0 +1,92 @@
+[
+  {
+    "file": "rich_1fc7cb210ae52eb099df39818ddb9569e5b14c7b.json",
+    "sha256": "4425313b2231691fc69c8b1a88e05684437348631e3198608748a971f429b195",
+    "bytes": 2352777
+  },
+  {
+    "file": "rich_01b85ac116c4635b6ddb8b488be8254be6df2a84.json",
+    "sha256": "afc9513274a7fb4fdfac1cbe3f73ff7d5db069a67a8178665aa84fb897832a87",
+    "bytes": 2220510
+  },
+  {
+    "file": "rich_2b5d648b2c62960deb6439f4204ed8fa6eb3cf7b.json",
+    "sha256": "8fcdbfada1e3f1407f47c92075557b33c0290d3edeca4ec46f0f2eab3727f71f",
+    "bytes": 2287445
+  },
+  {
+    "file": "fastapi_e94028ab60d18080810910352bc9129e8046c92d.json",
+    "sha256": "19354d620847e7cf29b0c90ca084b19e10662b512fc17472ad20206f7fb08220",
+    "bytes": 4887384
+  },
+  {
+    "file": "fastapi_0bdc3ca3732e3742e094bea2b320e9774659ac38.json",
+    "sha256": "06cb8a58ac94e93bd30b55100bc80fc9d5bfd3ecef87d8923be4f59817bf0fd4",
+    "bytes": 3784903
+  },
+  {
+    "file": "fastapi_d2c17b603d2f986d5f3800d3bf24acba8e1f485b.json",
+    "sha256": "269fc7ff7361d91a3d864af0d8c41838fe77951826e494b21c8635c83cbd53e8",
+    "bytes": 4792664
+  },
+  {
+    "file": "rich_368e8ad77c95a6bef8f9d332039091d1417296bc.json",
+    "sha256": "acd0e370d725b1bde53a533a2ef62a7750142968e143e8a7f1e89fb86ff5da2e",
+    "bytes": 2218917
+  },
+  {
+    "file": "rich_610fd75c433c3dfcd9c296e8b91363979127b9fa.json",
+    "sha256": "976d0562cd1245357e98e16cf2e81beddb2e277a065daed248752616e395ecf1",
+    "bytes": 2253855
+  },
+  {
+    "file": "rich_3b70db5a2997de191f7db3e422dbe4da35ca1c95.json",
+    "sha256": "5af4c89a0e0feb0a7749e0c897b6fffcafb1028c85fe26cc838cfa1a26176dbb",
+    "bytes": 2307355
+  },
+  {
+    "file": "fastapi_cd31576d5704b6aef1bdadc43770238cd88aad2b.json",
+    "sha256": "c316a09db4208699a1cf5a7724fa8450360f9a4988f4c6970a15f093b5e22764",
+    "bytes": 4884844
+  },
+  {
+    "file": "rich_9cb198944f8184df92217efc8b20d3fffa4b4fa0.json",
+    "sha256": "2fe3e293d2e6b7d6fc2d47c73ab9459c8a6a6b9d8f1b2db5b244a396b605850c",
+    "bytes": 2353568
+  },
+  {
+    "file": "fastapi_6b53786f626db95a42fd0f66afd360bab161f4b1.json",
+    "sha256": "56213d7380c04694ca08aff97046f11b1253a663cad4aedeec23a50d64ae217b",
+    "bytes": 5176175
+  },
+  {
+    "file": "rich_6764b24739b580c0c32ff5ef0b971ed4cfcf4f75.json",
+    "sha256": "09bd5fa85c303c6020caf9efefd38fe1373fabf09d1b5bfb5a6135606ce4bf96",
+    "bytes": 2331267
+  },
+  {
+    "file": "fastapi_740ec2787b25e59f7aa9e3df1db09d4489c22718.json",
+    "sha256": "d04a702fe296c8bf8576f6ebff3380e643ce276db75a7c7a446a98b46965267d",
+    "bytes": 4354003
+  },
+  {
+    "file": "rich_27701029082052c6541031b6f139097230253900.json",
+    "sha256": "8706f6e7ddc84a8da64d8b9d14c8bceb6b8d453c2fd1ea0ae2db7c4f663a26d5",
+    "bytes": 2347771
+  },
+  {
+    "file": "fastapi_2cf04ee30db9df2db04a5b1e0d2c625dfbf1a211.json",
+    "sha256": "4ced725ca06d6c7c7662fd4f7153e8860fd75faccee253b734396a0d15f98a20",
+    "bytes": 4275565
+  },
+  {
+    "file": "fastapi_6cf40df24d1d199fd25d034fc87fcae284fc23a2.json",
+    "sha256": "f419006dc00b5eecf8d0f6a057e442ac456378e493a06179f3ef742eef0d9964",
+    "bytes": 4355704
+  },
+  {
+    "file": "rich_edc6b0a39b6df1c0e26d409bb5c5eda7149b2de6.json",
+    "sha256": "9da9b8f5a126b4938f51334797bee1b68a2862e05236b74718de2130d6fd44ac",
+    "bytes": 2288451
+  }
+]

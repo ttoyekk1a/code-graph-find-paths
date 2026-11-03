@@ -1,0 +1,8 @@
+{
+  "wheel_built": true,
+  "manifest_payloads_verified": 22,
+  "installed_outside_checkout": true,
+  "real_sdk_query_connected": true,
+  "workspace_cleanup_verified": true,
+  "runtime_integration_tests_passed": 5
+}
