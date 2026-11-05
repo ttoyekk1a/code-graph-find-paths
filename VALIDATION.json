@@ -27,7 +27,7 @@
   "example_completeness_verified": true,
   "model_requests": 0,
   "project_name": "You Only Search Once in Code Graph",
-  "wheel_sha256": "ca0e64b2588c5764c6ee6bc2b0840212e9679711582b0fcb6f6ca26851e07ad8",
+  "wheel_sha256": "145f537ff2f95cb606e7f6bf04028542fcb1f7deaa8fc51b231fea01d68d69b3",
   "wheel_source_hashes_verified": true,
   "fresh_installed_api_and_cli_without_runtime_dependencies": true,
   "mcp_schema_exact": true,

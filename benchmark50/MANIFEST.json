@@ -5,7 +5,7 @@
   "files": {
     "Dockerfile.python": "5c14e71741e39e9c526452496d31a03ecdfb12a9ed1a0e64663904a58238373c",
     "HANDOFF_MANIFEST.json": "1ebaa43a9a283a56eded1ecd5c5c863b511405c80c2ade4fc2695f5a9279cc11",
-    "README.md": "34b2d73b4eb4ae7d685bea712673d2ddf9fbb06d9d87872172cedd486056e46b",
+    "README.md": "935ef1de183b0de951923951da78b539e504507b5df310538243c9ddfe6a4a4d",
     "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "backends/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "backends/controllers.py": "c387c2bf2b11d6605d8f44619fcb5a2c252eeaff6e35e5da8028e0f59b4c6c6b",
@@ -20,6 +20,8 @@
     "data/questions.jsonl": "74cb78c8b804d82d4bb89f9c0c5f6ae15315df86dd4ea873fe23765ba14ef338",
     "dataset.py": "4524da20d5bb16b83bc3ba6ef35223ab1b01de007f7148b8b716aa08c0b97c79",
     "evaluator/reference-answers.json": "fa0fa822714585f093b28184151cb2fe2bd1e3e17e857ae9f073f86092c008c0",
+    "figures/figure-1-results.png": "c694ad6305abecbdfe9b933e30c343775a840abcf1b485f857f1109461e63acb",
+    "figures/figure-2-analysis.png": "60ba1407c18eb8fc5e445e2272abf09b8bc0dec4ad7b0c032549f2f9747e1a99",
     "grading/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "grading/protocol.py": "a6286023ca18ad3cfffebabe94f9f35e6d52240e12fa3fe9a92474eec49892ba",
     "historical/deterministic-reference-summary.json": "4dc033bd847788f6ffe5a0eb759221f7520393039e0251cd26c7e36647f87817",

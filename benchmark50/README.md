@@ -4,6 +4,52 @@ Reproduce the fixed 50-question path-search study with 50 original graph files a
 
 The three model configurations are **Competition tools**, **Competition tools + search guidance**, and **graph_find_paths**. Each also exposes `execute_python` and `submit_graph_answer`. A full model campaign has 150 episodes, one per question and configuration.
 
+## Gemma-4-31B results
+
+The supplied Gemma-4-31B experiment evaluates 50 tasks per configuration. The selected historical outcomes are preserved in [historical/tasks.csv](historical/tasks.csv).
+
+![Exact answers and interaction costs](figures/figure-1-results.png)
+
+*Figure 1. Exact-set success and mean interaction costs across all 50 tasks, including unsuccessful attempts. Graph queries exclude Python and final submission.*
+
+| Configuration | Exact answers | Mean path recall | Graph queries/task | Python calls/task | Model rounds/task | Mean tokens/task |
+|---|---:|---:|---:|---:|---:|---:|
+| Competition tools | 39/50 (78%) | 80.42% | 9.96 | 0.98 | 9.82 | ≥80,695 |
+| Competition tools + search guidance | 43/50 (86%) | 87.00% | 5.54 | 1.28 | 5.16 | 34,798 |
+| `graph_find_paths` (ours) | **50/50 (100%)** | **100%** | **1.00** | **0.08** | **2.08** | **4,874** |
+
+*Tokens include input and output across all rounds, including repeated history. The competition-tools total is a lower bound because some usage records are missing; missing usage remains unknown.*
+
+`graph_find_paths` achieves 100% exact-set success, improving on the two comparators by **22** and **14 percentage points**. It uses one graph query per task and 2.08 model rounds on average.
+
+![Answer multiplicity and terminal failure categories](figures/figure-2-analysis.png)
+
+*Figure 2. Exact-set success by answer multiplicity, and terminal failure categories for the 18 unsuccessful comparator attempts.*
+
+On the 23 questions with multiple valid paths, the three configurations solve **13, 17, and 23**, respectively. On the 27 single-path questions, they solve **26, 26, and 27**.
+
+## Experiment prompts and tool configuration
+
+The original Gemma experiment's prompt, tool choices and budgets are included:
+
+| File | Purpose |
+|---|---|
+| [system-prompt.txt](config/system-prompt.txt) | Shared system prompt: path-enumeration objective, evidence requirements, budgets, Python usage and submission format. |
+| [search-guidance.md](config/search-guidance.md) | Extra search guidance appended only for the guided competition-tools configuration. |
+| [study.json](config/study.json) | Per-configuration graph-tool selection, guidance flags, sampling settings and execution budgets. |
+| [tools.json](config/tools.json) | Frozen model-visible tool descriptions and JSON schemas, including the experimental four-hop limit. |
+| [connection.example.json](config/connection.example.json) | Provider URL, served model name, API-key environment variable and transport selection. |
+
+| Configuration | Available graph tools | Additional system text |
+|---|---|---|
+| Competition tools | `get_code_neighbors`, `get_code_subgraph` | None |
+| Competition tools + search guidance | `get_code_neighbors`, `get_code_subgraph` | `search-guidance.md` |
+| `graph_find_paths` | `graph_find_paths` | None |
+
+All three configurations also receive `execute_python` and `submit_graph_answer`. The guided configuration appends exactly two newlines and the guidance text to the shared system prompt. The runner exposes only that configuration's selected tools. Each user message contains only `query_id`, `start`, `target` and `max_hops`.
+
+Shared settings are temperature **0.2**, maximum output tokens **4096**, **32** graph attempts, **16** Python attempts, **1** submission, **64** model rounds and **600 seconds** per task. See [Configure and run a model](#configure-and-run-a-model) to connect a served Gemma model or another compatible model.
+
 ## Install
 
 Use Python 3.12 and a working Docker Engine/CLI for the benchmark. The product API and CLI continue to work without benchmark dependencies.
@@ -111,15 +157,7 @@ Exact-set success requires an accepted formal submission with valid canonical ID
 
 `aggregate` writes `summary.json` and a 150-row `tasks.csv`. Success always uses 50 planned questions per configuration. Means include both successes and failures; partial reports identify their observed denominator and missing tasks. Token fields contain known totals/means plus explicit unknown-usage counts and a completeness flag.
 
-Historical selected model outcomes are stored separately in `historical/tasks.csv` with original-result hashes:
-
-| Historical Gemma-4-31B configuration | Exact sets | Mean graph attempts | Mean model rounds | Mean input + output tokens |
-|---|---:|---:|---:|---:|
-| Competition tools | 39/50 | 9.96 | 9.82 | ≥80,695 |
-| Competition tools + search guidance | 43/50 | 5.54 | 5.16 | 34,798 |
-| graph_find_paths | 50/50 | 1.00 | 2.08 | 4,874 |
-
-These are the supplied historical results. New reports are computed from saved episodes. The CSV's relative `evaluated_path` values identify historical sources; the historical network logs are not bundled.
+The [Gemma-4-31B results](#gemma-4-31b-results) above are supplied historical outcomes. New reports are computed from saved episodes. The CSV's relative `evaluated_path` values identify historical sources; the historical network logs are not bundled.
 
 ## Source integrity and tests
 

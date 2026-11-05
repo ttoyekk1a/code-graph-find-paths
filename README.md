@@ -4,6 +4,14 @@ Enumerate **all node-simple paths within a hop bound** between source and target
 
 The Python API and CLI use only the standard library. Supply your own graph JSON; installation and queries need no Kaggle account, competition SDK, model service, or model weights. MCP is an optional transport.
 
+## Gemma-4-31B results
+
+In the supplied 50-question Gemma-4-31B experiment, `graph_find_paths` achieves **50/50 exact answers**, with **1.00 graph query** and **2.08 model rounds** per task. The competition tools achieve 39/50; adding search guidance raises that to 43/50.
+
+![Gemma-4-31B exact answers and interaction costs](benchmark50/figures/figure-1-results.png)
+
+See the [results and second figure](benchmark50/README.md#gemma-4-31b-results) and the [original prompts, tool selections and budgets](benchmark50/README.md#experiment-prompts-and-tool-configuration).
+
 ## Reproduce the 50-question study
 
 The [benchmark50 guide](benchmark50/README.md) includes the fixed 50 questions, 142 reference paths, original competition-tool adapters, frozen prompts, isolated Python execution, a configurable model runner, and evidence-based grading. Its verified deterministic controls recover all 50 exact path sets: 6.46 mean graph queries with the competition tools plus a search program, and 1.00 with `graph_find_paths`.
