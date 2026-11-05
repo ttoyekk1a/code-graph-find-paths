@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import shutil
+import runpy
 from setuptools import setup
 from setuptools.command.build_py import build_py
 
@@ -13,7 +14,7 @@ class BuildBundle(build_py):
         target = Path(self.build_lib) / 'code_graph_find_paths/_bundle'
         if target.exists():
             shutil.rmtree(target)
-        names = list(json.loads((root / 'SHA256SUMS.json').read_text())) + ['SHA256SUMS.json', 'verify_sources.py']
+        names = runpy.run_path(str(root / 'code_graph_find_paths/_sources.py'))['SOURCE_HASHES']
         for name in names:
             dest = target / name
             dest.parent.mkdir(parents=True, exist_ok=True)

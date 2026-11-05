@@ -7,11 +7,13 @@ import json
 from pathlib import Path
 import threading
 
+from ._sources import SOURCE_HASHES
+
 
 def bundle_root():
     installed = Path(__file__).resolve().parent / '_bundle'
     root = installed if installed.is_dir() else Path(__file__).resolve().parents[1]
-    if not (root / 'SHA256SUMS.json').is_file():
+    if not (root / 'variants/graph-find-paths/tool.py').is_file():
         raise FileNotFoundError('all-paths source bundle is missing')
     return root
 
@@ -19,8 +21,7 @@ def bundle_root():
 @lru_cache(maxsize=1)
 def _native():
     root = bundle_root()
-    hashes = json.loads((root / 'SHA256SUMS.json').read_text())
-    for name, expected in hashes.items():
+    for name, expected in SOURCE_HASHES.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
             raise ValueError('SourceSHA256Mismatch: ' + name)
     path = root / 'variants/graph-find-paths/tool.py'

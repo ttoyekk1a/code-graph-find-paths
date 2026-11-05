@@ -23,7 +23,6 @@ Run the benchmark on your existing competition graphs, or fetch the exact files 
 From this project directory, with Python 3.9 or later:
 
 ```bash
-python3 verify_sources.py
 python3 -m unittest discover -s variants/graph-find-paths -p 'test_*.py' -v
 python3 run_graph_find_paths.py --graph example_graph.json \
   --sha256 92d0a209b67517b701256a3242f87b58016e83e7665f0e433c7c8f2c0cdc7d2f \
@@ -164,15 +163,13 @@ Use `pair.get("paths", [])`: output bounding may compact empty pair records and 
 
 - `variants/graph-find-paths/`: path search tool, schema and twelve supplied tests.
 - `exports/graph-find-paths/frozen/decision_lab/graph_native_v1/core.py`: exact pinned graph loader/resolver required by the tool.
-- `SHA256SUMS.json`, `verify_sources.py`: source integrity checks for this project.
 - `run_graph_find_paths.py`, `example_graph.json`: supplied executable example.
 - `code_graph_find_paths/`: installable Python API, CLI and optional MCP transport.
 - `tests/`, `scripts/`: integration checks for the package and transport.
 
-The tool implements the supplied all-paths search algorithm under the project’s current naming. `SHA256SUMS.json` verifies the bundled source files, including inside a built wheel. The pinned loader provides graph loading and node resolution; the public callable comes from the path search tool.
+The tool implements the supplied all-paths search algorithm under the project’s current naming. The Python package verifies its bundled implementation automatically when loaded. The pinned loader provides graph loading and node resolution; the public callable comes from the path search tool.
 
 ```bash
-python3 verify_sources.py
 python3 -m unittest discover -s variants/graph-find-paths -p 'test_*.py' -v
 python3 -m unittest discover -s tests -v
 # With the optional MCP extra installed:

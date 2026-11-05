@@ -105,8 +105,9 @@ def input_identity(implementation):
     if implementation=='product':
         from code_graph_find_paths.api import bundle_root
         root=bundle_root()
-        hashes['product/SHA256SUMS.json']=digest(root/'SHA256SUMS.json')
-        for name,h in json.loads((root/'SHA256SUMS.json').read_text()).items():
+        from code_graph_find_paths import _sources
+        hashes['product/_sources.py']=digest(_sources.__file__)
+        for name,h in _sources.SOURCE_HASHES.items():
             if digest(root/name)!=h:raise ValueError('Product source mismatch')
             hashes['product/'+name]=h
     return hashes

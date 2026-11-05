@@ -1,0 +1,10 @@
+"""Pinned implementation files bundled with the package."""
+
+SOURCE_HASHES = {'variants/graph-find-paths/tool.py': '8255e857315544644ab184ae5a8c6f15b16ac8f28d2869566af9402592810ec1',
+    'exports/graph-find-paths/frozen/decision_lab/graph_native_v1/core.py': '50346a0791e196155b4bc82cf8211f9b1992139c594375d24955718f7ad32bec',
+    'variants/graph-find-paths/test_tool.py': '29c71832b3a86f9f9f537e3b4b58689fb3f2decb0c6412c9725c7c985e7caf21',
+    'variants/graph-find-paths/test_max_hops.py': '1623291306667fb8a9eab2853f84481c7ec6169d31f660ec19c82a63773973ac',
+    'tool_schema.json': '88e9dac1157c6c53cd7fca12e11fca43699bface92e7a52cdb3329fc018fcd50',
+    'variants/graph-find-paths/tool_schema.json': '88e9dac1157c6c53cd7fca12e11fca43699bface92e7a52cdb3329fc018fcd50',
+    'example_graph.json': '92d0a209b67517b701256a3242f87b58016e83e7665f0e433c7c8f2c0cdc7d2f',
+    'run_graph_find_paths.py': '95cd975f29d34e9e58beb775bfe63a0d19a98ecf5ece4408278d94fa538e1c6d'}

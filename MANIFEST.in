@@ -1,6 +1,6 @@
 recursive-include variants *.py *.json
 recursive-include exports *.py
-include SHA256SUMS.json verify_sources.py tool_schema.json example_graph.json run_graph_find_paths.py
+include tool_schema.json example_graph.json run_graph_find_paths.py
 recursive-include benchmark50 *.py *.json *.jsonl *.csv *.md *.txt *.png
 include benchmark50/Dockerfile.python
 prune benchmark50/graphs
