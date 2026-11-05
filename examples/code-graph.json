@@ -1,7 +1,0 @@
-{
-  "nodes": [{"id": "app.entry"}, {"id": "app.service"}, {"id": "app.store"}],
-  "edges": [
-    {"source": "app.entry", "target": "app.service", "type": "calls"},
-    {"source": "app.service", "target": "app.store", "type": "calls"}
-  ]
-}

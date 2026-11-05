@@ -1,5 +1,5 @@
-"""General code-graph path witnesses, with optional MCP and competition integration."""
-from .runtime import GraphRuntime, CompetitionRuntime, get_tool_schema
+"""Bounded all-path enumeration with original edge evidence."""
+from .api import AllPathsSession, GraphRuntime, decode_paths, get_tool_schema, make_graph_find_paths
 
-__version__ = "0.2.1"
-__all__ = ["GraphRuntime", "CompetitionRuntime", "get_tool_schema"]
+__version__ = '2.0.0'
+__all__ = ['AllPathsSession', 'GraphRuntime', 'decode_paths', 'get_tool_schema', 'make_graph_find_paths']

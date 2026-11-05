@@ -1,0 +1,10 @@
+{
+  "nodes": [{"id": "a"}, {"id": "b"}, {"id": "c"}, {"id": "d"}, {"id": "t"}],
+  "links": [
+    {"source": "a", "target": "b", "type": "stored", "note": "first branch"},
+    {"source": "b", "target": "t", "type": "stored"},
+    {"source": "a", "target": "c", "type": "stored", "note": "longer branch"},
+    {"source": "c", "target": "d", "type": "stored"},
+    {"source": "d", "target": "t", "type": "stored"}
+  ]
+}

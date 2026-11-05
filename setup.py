@@ -1,18 +1,23 @@
-"""Ship the retained, hash-pinned reference bundle inside built wheels."""
+"""Keep the authoritative tool and frozen loader at their required relative paths."""
 from pathlib import Path
+import json
 import shutil
 from setuptools import setup
 from setuptools.command.build_py import build_py
 
-class BuildWithFrozenBundle(build_py):
+
+class BuildBundle(build_py):
     def run(self):
         super().run()
-        source = Path(__file__).parent / 'graph-find-paths'
-        target = Path(self.build_lib) / 'code_graph_find_paths' / '_frozen_bundle'
-        # Prevent removed source files from surviving in an incremental build.
+        root = Path(__file__).parent
+        target = Path(self.build_lib) / 'code_graph_find_paths/_bundle'
         if target.exists():
             shutil.rmtree(target)
-        shutil.copytree(source, target,
-                        ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+        names = list(json.loads((root / 'SHA256SUMS.json').read_text())) + ['SHA256SUMS.json', 'verify_sources.py']
+        for name in names:
+            dest = target / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(root / name, dest)
 
-setup(cmdclass={'build_py': BuildWithFrozenBundle})
+
+setup(cmdclass={'build_py': BuildBundle})

@@ -1,42 +1,32 @@
-"""MCP transport preserving the frozen tool schema and default JSON serialization."""
-import contextlib
+"""MCP transport for the exact native name, parameters and all-path packet."""
 import json
-import sys
-
 from mcp import types
 from mcp.server.lowlevel import Server
 from mcp.server.stdio import stdio_server
 
 
-def create_server(runtime):
-    server = Server('code-graph-find-paths', version='0.2.1')
-    declaration = runtime.schema['function']
+async def serve(runtime):
+    server = Server('you-only-search-once-in-code-graph', version='2.0.0')
+    schema = runtime.schema
 
     @server.list_tools()
     async def list_tools():
-        return [types.Tool(name=declaration['name'], description=declaration['description'],
-                           inputSchema=declaration['parameters'])]
+        return [types.Tool(name=schema['name'], description=schema['description'],
+                           inputSchema=schema['parameters'])]
 
-    # Count malformed attempts in our controller, rather than letting the SDK
-    # reject them before the controller sees them. Runtime validates all inputs.
     @server.call_tool(validate_input=False)
     async def call_tool(name, arguments):
         try:
-            with contextlib.redirect_stdout(sys.stderr):
-                packet = runtime.dispatch(name, arguments)
-        except Exception as exc:
-            # Transport errors are outside the frozen native packet contract.
-            packet = {'status':'error', 'error_type':type(exc).__name__,
-                      'error':str(exc), 'error_scope':'transport'}
-        return types.CallToolResult(
-            content=[types.TextContent(type='text', text=json.dumps(packet))],
-            isError=packet.get('status') == 'error',
-        )
+            if name != schema['name']:
+                raise ValueError('UnknownTool: ' + name)
+            if type(arguments) is not dict:
+                raise ValueError('Arguments must be an object')
+            packet = runtime.query(**arguments)
+            return types.CallToolResult(content=[types.TextContent(type='text', text=json.dumps(packet))])
+        except (ValueError, TypeError, OSError, RuntimeError) as exc:
+            # Native Python calls raise; MCP carries those failures as transport errors.
+            return types.CallToolResult(isError=True, content=[types.TextContent(
+                type='text', text=json.dumps({'error_type': type(exc).__name__, 'message': str(exc), 'scope': 'transport'}))])
 
-    return server
-
-
-async def serve_stdio(runtime):
-    server = create_server(runtime)
-    async with stdio_server() as (incoming, outgoing):
-        await server.run(incoming, outgoing, server.create_initialization_options())
+    async with stdio_server() as (reader, writer):
+        await server.run(reader, writer, server.create_initialization_options())

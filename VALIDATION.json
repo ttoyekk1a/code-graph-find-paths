@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-05",
+  "tool_version": "graph-find-paths",
+  "package_version": "2.0.0",
+  "original_tests_passed": 12,
+  "package_tests_passed": 4,
+  "example_h4_paths": [
+    [
+      "a",
+      "b",
+      "t"
+    ],
+    [
+      "a",
+      "c",
+      "d",
+      "t"
+    ]
+  ],
+  "example_h2_paths": [
+    [
+      "a",
+      "b",
+      "t"
+    ]
+  ],
+  "example_completeness_verified": true,
+  "model_requests": 0,
+  "project_name": "You Only Search Once in Code Graph",
+  "wheel_sha256": "13fd569e85de3e3a7b3d2317ba8cca8a1dc4d37c61e96094894a83c42b616ce5",
+  "wheel_source_hashes_verified": true,
+  "fresh_installed_api_and_cli_without_runtime_dependencies": true,
+  "mcp_schema_exact": true,
+  "installed_mcp_outside_checkout": true,
+  "mcp_sixteen_hop_path_verified": true,
+  "mcp_packet_identical_to_native": true,
+  "mcp_validation_errors_verified": true,
+  "algorithm_unchanged_from_supplied_source": true,
+  "version_suffix_removed": true
+}

@@ -1,0 +1,38 @@
+{
+  "name": "graph_find_paths",
+  "description": "Enumerate bounded node-simple paths in the stored undirected adjacency for each ordered source and target pair. Inspect the returned completeness flag before claiming completeness.",
+  "parameters": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "source_nodes",
+      "target_nodes"
+    ],
+    "properties": {
+      "source_nodes": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "target_nodes": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 8,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "max_hops": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 16,
+        "default": 4
+      }
+    }
+  }
+}
