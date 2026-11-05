@@ -1,0 +1,63 @@
+{
+  "experiment": "all-paths-agent-study-20261104",
+  "objective": "all_ordered_node_simple_paths",
+  "max_graph_queries": 32,
+  "max_submissions": 1,
+  "max_result_chars": 1000000,
+  "max_total_result_chars": 128000000,
+  "max_episode_seconds": 600,
+  "model_enabled": false,
+  "baseline": {
+    "max_neighbors": 20000,
+    "tools": [
+      "get_code_neighbors",
+      "get_code_subgraph",
+      "submit_graph_answer"
+    ]
+  },
+  "candidate": {
+    "max_edge_rows": 2000000,
+    "max_dfs_states": 500000,
+    "max_paths": 100000,
+    "tools": [
+      "graph_find_paths",
+      "submit_graph_answer"
+    ]
+  },
+  "max_python_calls": 16,
+  "max_model_rounds": 64,
+  "temperature": 0.2,
+  "max_output_tokens": 4096,
+  "repeats": 1,
+  "python_image": "sha256:38758a82a44d1acb9bae3dd5f7d2a55452fb44a5ceca7c4589f360f2c4aa3d0c",
+  "python_timeout_seconds": 10,
+  "python_output_chars": 64000,
+  "python_code_chars": 32000,
+  "arms": {
+    "legacy-tools-agent": {
+      "label": "Agent＋旧图工具",
+      "graph_tools": [
+        "get_code_neighbors",
+        "get_code_subgraph"
+      ],
+      "guidance": false
+    },
+    "guided-legacy-tools-agent": {
+      "label": "Agent＋旧图工具＋搜索指导",
+      "graph_tools": [
+        "get_code_neighbors",
+        "get_code_subgraph"
+      ],
+      "guidance": true
+    },
+    "all-paths-tool-agent": {
+      "label": "Agent＋全路径工具",
+      "graph_tools": [
+        "graph_find_paths"
+      ],
+      "guidance": false
+    }
+  },
+  "python_input_bytes": 1048576,
+  "python_input_max_depth": 64
+}

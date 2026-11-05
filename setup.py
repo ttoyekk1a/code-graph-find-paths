@@ -19,5 +19,12 @@ class BuildBundle(build_py):
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(root / name, dest)
 
+        benchmark = root / 'benchmark50'
+        target = Path(self.build_lib) / 'benchmark50'
+        for name in list(json.loads((benchmark / 'MANIFEST.json').read_text())['files']) + ['MANIFEST.json']:
+            dest = target / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(benchmark / name, dest)
+
 
 setup(cmdclass={'build_py': BuildBundle})

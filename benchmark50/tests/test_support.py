@@ -1,0 +1,74 @@
+import sys
+import json
+import os
+import unittest
+from pathlib import Path
+
+from benchmark50 import support
+
+
+class SupportTests(unittest.TestCase):
+    def test_public_data_does_not_contain_evaluator_fields(self):
+        questions = [json.loads(line) for line in (support.HERE/'data/questions.jsonl').read_text().splitlines()]
+        self.assertEqual(len(questions), 50)
+        self.assertTrue(all(set(q) == {'query_id', 'start', 'target', 'max_hops'} for q in questions))
+
+    def test_primary_exact_set_does_not_require_our_proof_strategy(self):
+        q = dict(query_id='x', start='s', target='t', max_hops=4)
+        trace = dict(name='get_code_subgraph', arguments={'nodes':['s','t']}, result={
+            'status':'ok', 'edges':[{'from':'s','to':'t'}], 'is_truncated':False})
+        g = support.grade_episode(q, {'paths':[['s','t']], 'complete':True}, [['s','t']], [trace])
+        self.assertTrue(g['exact_set_success'])
+        self.assertFalse(g['certified_success'])
+        self.assertFalse(g['false_complete_claim'])
+        self.assertTrue(g['unverified_complete_claim'])
+
+    def test_complete_neighbor_frontiers_prove_complete(self):
+        q = dict(query_id='x', start='s', target='t', max_hops=4)
+        obs = [dict(name='get_code_neighbors', arguments={'node':n}, result={
+            'status':'ok','node':n,'neighbors':[other],'count':1,'is_truncated':False})
+            for n,other in [('s','t'),('t','s')]]
+        g = support.grade_episode(q, {'paths':[['s','t']], 'complete':True}, [['s','t']], obs)
+        self.assertTrue(g['certified_success'])
+
+    def test_schema_rejects_invalid_keys_and_boolean_integer(self):
+        self.assertIsNotNone(support.argument_error('get_code_neighbors', {'node':'s','secret':1}))
+        self.assertIsNotNone(support.argument_error('get_code_neighbors', {'node':'s','max_neighbors':True}))
+        self.assertIsNotNone(support.argument_error('graph_find_paths', {'source_nodes':['s'],'target_nodes':['t'],'max_hops':5}))
+        self.assertIsNone(support.argument_error('get_code_neighbors', {'node':'s','max_neighbors':20000}))
+
+    def test_unknown_id_not_accepted_as_empty_neighborhood_certificate(self):
+        q=dict(query_id='x',start='s',target='t',max_hops=4)
+        obs=[dict(name='get_code_neighbors',arguments={'node':'unknown'},result={'status':'ok','node':'unknown','neighbors':[],'count':0,'is_truncated':False})]
+        self.assertFalse(support.complete_proof(q,obs))
+
+    def test_sources_unchanged(self):
+        self.assertTrue(support.verify_sources())
+
+
+    def test_complete_false_exact_paths_still_succeeds_primary_metric(self):
+        q = dict(query_id='x', start='s', target='t', max_hops=4)
+        obs = [dict(name='get_code_neighbors', arguments={'node':'s'}, result={
+            'status':'ok', 'node':'s', 'neighbors':['t'], 'count':1, 'is_truncated':False})]
+        grade = support.grade_episode(q, {'paths':[['s','t']], 'complete':False}, [['s','t']], obs)
+        self.assertTrue(grade['exact_set_success'])
+        self.assertFalse(grade['certified_success'])
+        self.assertFalse(grade['complete_claim'])
+        self.assertFalse(grade['false_complete_claim'])
+
+    def test_exact_paths_without_delivered_edge_evidence_fail(self):
+        q = dict(query_id='x', start='s', target='t', max_hops=4)
+        grade = support.grade_episode(q, {'paths':[['s','t']], 'complete':False}, [['s','t']], [])
+        self.assertFalse(grade['exact_set_success'])
+        self.assertEqual(grade['unsupported_path_count'], 1)
+
+    @unittest.skipUnless(os.environ.get('BENCHMARK50_GRAPHS_DIR'), 'Set BENCHMARK50_GRAPHS_DIR for pinned asset checks')
+    def test_bound_graph_assets_and_private_question_alignment(self):
+        questions, refs = support.load_inputs(Path(os.environ['BENCHMARK50_GRAPHS_DIR']))
+        self.assertEqual(len(questions), 50)
+        self.assertEqual(len(refs), 50)
+        for q in questions:
+            self.assertEqual({key:refs[q['query_id']][key] for key in q}, q)
+
+
+if __name__ == '__main__': unittest.main()

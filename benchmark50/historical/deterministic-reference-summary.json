@@ -1,0 +1,20 @@
+{
+  "旧工具＋确定性搜索程序": {
+    "tasks": 50,
+    "exact_sets": 50,
+    "certified_complete": 49,
+    "mean_graph_queries": 6.46,
+    "max_graph_queries": 32,
+    "paths_matched": 142,
+    "errors": 0
+  },
+  "全路径工具直接执行": {
+    "tasks": 50,
+    "exact_sets": 50,
+    "certified_complete": 50,
+    "mean_graph_queries": 1,
+    "max_graph_queries": 1,
+    "paths_matched": 142,
+    "errors": 0
+  }
+}

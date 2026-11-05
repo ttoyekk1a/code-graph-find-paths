@@ -1,0 +1,140 @@
+{
+  "get_code_neighbors": {
+    "name": "get_code_neighbors",
+    "description": "Retrieve structural neighbors of one canonical node ID from the stored graph. Leave edge_type unset for the all-path task. A truncated neighborhood cannot support a completeness claim.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node"
+      ],
+      "properties": {
+        "node": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edge_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_neighbors": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000,
+          "default": 20000
+        }
+      }
+    }
+  },
+  "get_code_subgraph": {
+    "name": "get_code_subgraph",
+    "description": "Retrieve the stored edges between the supplied canonical node IDs.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "graph_find_paths": {
+    "name": "graph_find_paths",
+    "description": "Enumerate bounded node-simple paths in the stored undirected adjacency for each ordered source and target pair. Inspect the returned completeness flag before claiming completeness.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_nodes",
+        "target_nodes"
+      ],
+      "properties": {
+        "source_nodes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "target_nodes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "max_hops": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "default": 4
+        }
+      }
+    }
+  },
+  "submit_graph_answer": {
+    "name": "submit_graph_answer",
+    "description": "Submit all distinct supported paths and whether the delivered evidence establishes that the set is exhaustive.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "paths",
+        "complete"
+      ],
+      "properties": {
+        "paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 5,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "complete": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "execute_python": {
+    "name": "execute_python",
+    "description": "Execute stateless Python standard-library code in an isolated container. Read-only input globals: question and observations (all graph tool attempts delivered so far as name/arguments/result). Print values to stdout. No host files or network. Prior Python variables/files do not persist. No graph access except supplied observations. Combined serialized input <=1MiB and depth<=64; overflow is an explicit error. Output JSON <=64000 characters.",
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32000
+        }
+      }
+    }
+  }
+}

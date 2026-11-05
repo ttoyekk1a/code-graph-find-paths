@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "base_url": "",
+  "model": "",
+  "api_key_env": "GRAPH_STUDY_API_KEY",
+  "protocol": "chat_completions",
+  "stream": false
+}

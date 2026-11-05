@@ -12,9 +12,11 @@ dependencies = []
 
 [project.optional-dependencies]
 mcp = ["mcp>=1.23,<2"]
+benchmark = ["httpx==0.28.1", "jsonschema==4.26.0", "networkx==3.7", "numpy==2.5.4", "cachetools==7.2.8"]
 
 [project.scripts]
 code-graph-find-paths = "code_graph_find_paths.cli:main"
 
 [tool.setuptools]
-packages = ["code_graph_find_paths"]
+packages = ["code_graph_find_paths", "benchmark50", "benchmark50.backends", "benchmark50.runner", "benchmark50.grading", "benchmark50.scripts", "benchmark50.tests"]
+include-package-data = false

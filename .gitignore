@@ -7,3 +7,6 @@ dist/
 .DS_Store
 .env
 .env.*
+benchmark50/graphs/
+runs/
+*.local.json

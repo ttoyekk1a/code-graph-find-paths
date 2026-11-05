@@ -1,0 +1,240 @@
+{
+  "kind": "experiment reconstruction handoff, not a finished portable benchmark implementation",
+  "questions": 50,
+  "graphs": 50,
+  "paths": 142,
+  "selected_model_outcomes": 150,
+  "graph_bytes": 165369567,
+  "files": {
+    "benchmark50/data/questions.jsonl": {
+      "sha256": "74cb78c8b804d82d4bb89f9c0c5f6ae15315df86dd4ea873fe23765ba14ef338",
+      "bytes": 7164,
+      "source": "original public questions, byte-identical"
+    },
+    "benchmark50/evaluator/reference-answers.json": {
+      "sha256": "fa0fa822714585f093b28184151cb2fe2bd1e3e17e857ae9f073f86092c008c0",
+      "bytes": 50852,
+      "source": "Original evaluation records; only machine-specific graph_path removed"
+    },
+    "benchmark50/data/graph-assets.json": {
+      "sha256": "90cee86553fc8705f629db79265b9c7e6d9dd55117d2f1dc5d88846aebb9b1e5",
+      "bytes": 20803,
+      "source": "All 50 original graph hashes checked against local assets during handoff generation"
+    },
+    "benchmark50/config/study.json": {
+      "sha256": "08ac0b5e9ea87346e20fbb22ab09e5b0bcbe6cd19e2cf8955ecbca123eb4ae1a",
+      "bytes": 1559,
+      "source": "experiments/all-paths-agent-study-20261104/config/study.json"
+    },
+    "benchmark50/config/system-prompt.txt": {
+      "sha256": "f5b525a798fc5a75c12619c6ff45b926f88817b69fcfabc9dfe42bc0a607a7a8",
+      "bytes": 2686,
+      "source": "experiments/all-paths-agent-study-20261104/config/system-prompt.txt"
+    },
+    "benchmark50/config/search-guidance.md": {
+      "sha256": "c856bd3c363343faef5182e57e94285783312d1997ea080dbffe59179d18d9f2",
+      "bytes": 1986,
+      "source": "experiments/all-paths-agent-study-20261104/config/search-guidance.md"
+    },
+    "benchmark50/config/tools.json": {
+      "sha256": "6dc5035a8f1b998a5ede35f1472d91bf2654940bc8d92e3320def0f6b405af12",
+      "bytes": 3857,
+      "source": "experiments/all-paths-agent-study-20261104/config/tools.json"
+    },
+    "benchmark50/historical/tasks.csv": {
+      "sha256": "1030da1260c70f24e4e67fdd8076c21c354e5240677d2b51fff29344d56e8b53",
+      "bytes": 41774,
+      "source": "Published 150 selected outcomes; evaluated_path converted to research-root-relative provenance, not a bundled raw trace"
+    },
+    "benchmark50/historical/deterministic-reference-summary.json": {
+      "sha256": "4dc033bd847788f6ffe5a0eb759221f7520393039e0251cd26c7e36647f87817",
+      "bytes": 429,
+      "source": "Original 32-query non-model reference results"
+    },
+    "reference-source/decision_lab/responses_codec.py": {
+      "sha256": "7c1c493801d2272f479be4738d81829004268fedb52fd0c554326081e99fe3de",
+      "bytes": 7842,
+      "source": "Unmodified historical source: decision_lab/responses_codec.py"
+    },
+    "reference-source/evidence/all-paths-v1-20261104/oracle.py": {
+      "sha256": "d26468e998eb46138d5a0410e5da7ee3cd3d9d68f44e6ce1ea2e0acb6839c1ba",
+      "bytes": 5926,
+      "source": "Unmodified historical source: evidence/all-paths-v1-20261104/oracle.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/async_transport.py": {
+      "sha256": "6d015c3377d14b5da03306faa7927448d8c36882114dae7cf5c65e574da1f347",
+      "bytes": 10463,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/async_transport.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/episode.py": {
+      "sha256": "4881bcd38714a97dd1c4eef0ccf25f22732295369ac76a095f6c0446f7eb8270",
+      "bytes": 12762,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/episode.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/hybrid_transport.py": {
+      "sha256": "a61d39be297560eeac823d907b132db2c89bcfe9300ab0ab6705257418ca9015",
+      "bytes": 7606,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/hybrid_transport.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/python_tool.py": {
+      "sha256": "133021ae5b28702f37c628b32e5657dbce84aa8b2a11bf83215b292467f7986c",
+      "bytes": 11132,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/python_tool.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/run_agents.py": {
+      "sha256": "3c7aab13700b7116410356140d8cb09b6367d476cc59b66c533f4da303bd4717",
+      "bytes": 6868,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/run_agents.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/run_parallel.py": {
+      "sha256": "6e80fd4b461ce7dd13da6cb9c6d648b1a68446e9d71c2f3a497f1c6ec4fc1dd9",
+      "bytes": 14300,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/run_parallel.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/run_parallel_hybrid.py": {
+      "sha256": "02e1b7b169889b395a09be7cdf66d20da1c8e1c361c8710e8292176ba1b345ac",
+      "bytes": 6978,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/run_parallel_hybrid.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/run_references.py": {
+      "sha256": "17f192a45caf5db0ae412034186c81d59e2ceb80cd63cf4e13beff98db8a1e4f",
+      "bytes": 3745,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/run_references.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/support.py": {
+      "sha256": "d1c7acc2c460381492cc3b50b73008939aa208be4f60b825bddfdb7f34bd7bf7",
+      "bytes": 6227,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/support.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_async_transport.py": {
+      "sha256": "14e7e5ef90c3ee6f6576dd1b7df15ff29b90e1961ed4484bfdbed1206cb24143",
+      "bytes": 15718,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_async_transport.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_campaign.py": {
+      "sha256": "21b6fec205c2a4dc6fd3a8658f315a05d03c8281637be4004af821d42596c530",
+      "bytes": 2030,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_campaign.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_episode.py": {
+      "sha256": "1f166179df38e64fba8d42db0868a4c7206088ede1eb6e24f845e2cc8aec8e77",
+      "bytes": 6061,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_episode.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_hybrid.py": {
+      "sha256": "dac71270f588ed272b311a237e9c2f03c8c11a3e6ea6c9912a0f394f372fb7a2",
+      "bytes": 8622,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_hybrid.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_integration.py": {
+      "sha256": "f087448ca642ed517c93925dd1e4f58f9cf2516d23b2f104b04301fa78c0d0e9",
+      "bytes": 3635,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_integration.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_parallel.py": {
+      "sha256": "a2ff5fa1d4afbe22c3794c60bb3831ea1359065b80d2a9fc72750fb44a2b83a8",
+      "bytes": 3095,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_parallel.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_python_tool.py": {
+      "sha256": "17ae4191bc7ec209c276c4a0f8eafcc03ac3a192b36dac90c064e4fda0133663",
+      "bytes": 5182,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_python_tool.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_references.py": {
+      "sha256": "2a1cbd24aa65f71b4e4158cae811ef6d16851cf82a76d636522d8e095f2b1a8d",
+      "bytes": 499,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_references.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_review_fixes.py": {
+      "sha256": "29b3d40988644525cfb089c92362444425a9b3e2efb33e1bd54db778064caf5c",
+      "bytes": 7056,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_review_fixes.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_support.py": {
+      "sha256": "adefbcf76c20f9ee30858f760d07204fb1f51463951650e08c97bdb0d49c5386",
+      "bytes": 2603,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_support.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/tests/test_transport.py": {
+      "sha256": "5c0197e08a4b540ae60fc66d95d0cd12fa3f265738a843d465b16473b4b599c8",
+      "bytes": 2065,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/tests/test_transport.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/transport.py": {
+      "sha256": "73710cf9dfe1fcef3cdd4931a343479377e5fda2ef60ea4e8f71131fd0987bea",
+      "bytes": 3661,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/transport.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/worker_job.py": {
+      "sha256": "758c01bee22591a2df8b3db72edbb641f00ce32c501efe07c758c12f59efb6a8",
+      "bytes": 2261,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/worker_job.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/worker_job_hybrid.py": {
+      "sha256": "4eec95b756ecea65ed605e5cfde0997074b3fc021484ac313836c5f1059f3146",
+      "bytes": 2714,
+      "source": "Unmodified historical source: experiments/all-paths-agent-study-20261104/worker_job_hybrid.py"
+    },
+    "reference-source/experiments/all-paths-comparison-v1/controllers.py": {
+      "sha256": "c387c2bf2b11d6605d8f44619fcb5a2c252eeaff6e35e5da8028e0f59b4c6c6b",
+      "bytes": 7526,
+      "source": "Unmodified historical source: experiments/all-paths-comparison-v1/controllers.py"
+    },
+    "reference-source/experiments/all-paths-comparison-v1/protocol.py": {
+      "sha256": "a6286023ca18ad3cfffebabe94f9f35e6d52240e12fa3fe9a92474eec49892ba",
+      "bytes": 2611,
+      "source": "Unmodified historical source: experiments/all-paths-comparison-v1/protocol.py"
+    },
+    "reference-source/experiments/all-paths-comparison-v1/runtime.py": {
+      "sha256": "bfbc41f4d201fc110a9e11a57eecb36534acdfb4f46f32cc9e64ae0bef0ffd50",
+      "bytes": 7229,
+      "source": "Unmodified historical source: experiments/all-paths-comparison-v1/runtime.py"
+    },
+    "reference-source/exports/graph-find-paths/frozen/decision_lab/graph_native_v1/core.py": {
+      "sha256": "50346a0791e196155b4bc82cf8211f9b1992139c594375d24955718f7ad32bec",
+      "bytes": 16613,
+      "source": "Unmodified historical source: exports/graph-find-paths/frozen/decision_lab/graph_native_v1/core.py"
+    },
+    "reference-source/variants/graph-find-paths-all-v1/test_tool.py": {
+      "sha256": "a38e3272d60d644975f72f3aebb933aecf4824cae45025e8c47f5beb315c88e0",
+      "bytes": 6288,
+      "source": "Unmodified historical source: variants/graph-find-paths-all-v1/test_tool.py"
+    },
+    "reference-source/variants/graph-find-paths-all-v1/tool.py": {
+      "sha256": "688909f9643927cb80cd608d7c31b8fd30400c696ab30b3b71050beaf489647a",
+      "bytes": 11040,
+      "source": "Unmodified historical source: variants/graph-find-paths-all-v1/tool.py"
+    },
+    "reference-source/vendor/swegemma/graph/embedding_utils.py": {
+      "sha256": "c0970058b7e069bd4493bd86beb68d29047eb0e51d38814a1a146c428e243bf0",
+      "bytes": 16080,
+      "source": "Unmodified historical source: vendor/swegemma/graph/embedding_utils.py"
+    },
+    "reference-source/vendor/swegemma/graph/graph_utils.py": {
+      "sha256": "ab2fc0349207baf0c37423f9a28a550923a0ac553c4de2cf0e58447e96ad3050",
+      "bytes": 19051,
+      "source": "Unmodified historical source: vendor/swegemma/graph/graph_utils.py"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/config/study.json": {
+      "sha256": "08ac0b5e9ea87346e20fbb22ab09e5b0bcbe6cd19e2cf8955ecbca123eb4ae1a",
+      "bytes": 1559,
+      "source": "Unmodified historical configuration"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/config/system-prompt.txt": {
+      "sha256": "f5b525a798fc5a75c12619c6ff45b926f88817b69fcfabc9dfe42bc0a607a7a8",
+      "bytes": 2686,
+      "source": "Unmodified historical configuration"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/config/search-guidance.md": {
+      "sha256": "c856bd3c363343faef5182e57e94285783312d1997ea080dbffe59179d18d9f2",
+      "bytes": 1986,
+      "source": "Unmodified historical configuration"
+    },
+    "reference-source/experiments/all-paths-agent-study-20261104/config/tools.json": {
+      "sha256": "6dc5035a8f1b998a5ede35f1472d91bf2654940bc8d92e3320def0f6b405af12",
+      "bytes": 3857,
+      "source": "Unmodified historical configuration"
+    }
+  }
+}

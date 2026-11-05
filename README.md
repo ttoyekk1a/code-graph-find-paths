@@ -4,6 +4,12 @@ Enumerate **all node-simple paths within a hop bound** between source and target
 
 The Python API and CLI use only the standard library. Supply your own graph JSON; installation and queries need no Kaggle account, competition SDK, model service, or model weights. MCP is an optional transport.
 
+## Reproduce the 50-question study
+
+The [benchmark50 guide](benchmark50/README.md) includes the fixed 50 questions, 142 reference paths, original competition-tool adapters, frozen prompts, isolated Python execution, a configurable model runner, and evidence-based grading. Its verified deterministic controls recover all 50 exact path sets: 6.46 mean graph queries with the competition tools plus a search program, and 1.00 with `graph_find_paths`.
+
+Run the benchmark on your existing competition graphs, or fetch the exact files using its SHA-256 asset manifest. Model execution requires an explicit connection configuration and `--execute`.
+
 ## Quick start
 
 From this project directory, with Python 3.9 or later:

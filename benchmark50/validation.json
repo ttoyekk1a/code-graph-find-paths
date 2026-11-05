@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-06",
+  "source_files_extracted_and_hash_verified": 47,
+  "public_questions": 50,
+  "graphs": 50,
+  "graph_bytes": 165369567,
+  "reference_paths": 142,
+  "benchmark_tests_passed": 71,
+  "benchmark_tests_skipped": 0,
+  "product_tests_passed": 16,
+  "independent_oracle_verified": true,
+  "original_historical_rows_verified": 150,
+  "product_packet_parity": {
+    "questions": 50,
+    "default_equals_explicit_four": true,
+    "all_fields_except_version_equal": true,
+    "original_edge_evidence_equal": true
+  },
+  "deterministic_controls": {
+    "legacy-program": {
+      "label": "Competition tools + deterministic program",
+      "tasks": 50,
+      "exact_sets": 50,
+      "certified_complete": 49,
+      "mean_graph_queries": 6.46,
+      "paths_matched": 142,
+      "errors": 0
+    },
+    "all-paths-direct": {
+      "label": "graph_find_paths direct",
+      "tasks": 50,
+      "exact_sets": 50,
+      "certified_complete": 50,
+      "mean_graph_queries": 1.0,
+      "paths_matched": 142,
+      "errors": 0
+    }
+  },
+  "graph_delivery": {
+    "method": "Kaggle competition files with fixed per-file byte counts and SHA-256",
+    "competition": "gemma-4-developer-agent",
+    "all_local_graphs_verified": true,
+    "downloader_actual_downloads_verified": 1,
+    "existing_mismatch_rejected": true,
+    "graphs_in_git": false
+  },
+  "isolation": {
+    "dockerfile_built": true,
+    "base_digest": "sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54",
+    "validated_local_image_id": "sha256:8503ec9ebf7a0be64cd8f215afb3b821d62618f6b8b0bdb52afd3c554133f55c",
+    "python_version": "3.12.16",
+    "network": "none",
+    "root_filesystem": "read-only",
+    "uid": 65534,
+    "capabilities": [],
+    "memory_mib": 128,
+    "cpus": 1,
+    "pids": 32,
+    "tmpfs_mib": 16,
+    "host_mounts": false,
+    "cleanup_verified": true
+  },
+  "installed_package": {
+    "fresh_environment": true,
+    "outside_checkout": true,
+    "graph_verification": true,
+    "deterministic_controls": true,
+    "three_process_mock_chat_loop": true
+  },
+  "evaluation_cli_and_partial_aggregation_verified": true,
+  "transport_tests": {
+    "chat": true,
+    "optional_background_responses": true,
+    "no_generation_retry": true,
+    "unknown_usage_preserved": true
+  },
+  "real_model_requests": 0,
+  "full_model_campaign_executed": false
+}
